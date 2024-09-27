@@ -1,0 +1,469 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: black; /* Dark background color */
+  width: 100%; /* Ensure the header spans the full width */
+}
+
+.navbar-brand {
+  margin-left: 20px;
+  color: white; /* White text color for logo */
+}
+
+.navbar-nav .nav-link {
+  color: white; /* White text color for nav links */
+}
+
+.navbar-toggler {
+  border-color: white; /* White border color for the toggle button */
+}
+
+.navbar-toggler-icon {
+  background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28255, 255, 255, 1%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+  /* White icon color */
+}
+
+.navbar-nav {
+  margin-right: 20px;
+}
+
+.nav-item {
+  margin: 0 10px; /* Add space between nav items */
+  font-size: 25px;
+}
+
+.text-end-md {
+  text-align: left;
+  font-family: "Libre Baskerville", serif;
+  color: black !important; /* Color for the first heading */
+  font-size: 50px;
+}
+
+
+.text-start-md {
+  text-align: right;
+  font-family: "Edu AU VIC WA NT Hand", cursive ;
+  color: rgb(249, 134, 12) !important;
+  font-size: 30px;
+}
+
+#about-supporting-text{
+  color: #6b9c6b !important;
+}
+
+#work-title{
+  font-family: "Libre Baskerville", serif;
+}
+
+#work-supporting-text{
+  color: #000000 !important;
+  font-family: "Edu AU VIC WA NT Hand", cursive ;
+}
+
+/* List group styles */
+.list-group-checkable {
+  display: grid;
+  gap: 0.5rem; /* Adjust as needed for spacing between items */
+}
+
+.list-group-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #dee2e6;
+  border-radius: 0.75rem; /* Rounded corners */
+  padding: 1.5rem; /* Adjust padding for spacing */
+  background-color: #6b9c6b; /* Background color */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  min-height: 120px; /* Increased minimum height */
+  font-size: 1.5rem; /* Increased font size */
+  color: white;
+}
+
+.list-group-item:hover {
+  background-color: #ff6f00; /* Light grey background on hover */
+  border-color: #000000; /* Slightly darker border on hover */
+  color: #000000;
+}
+
+.list-group-item .small {
+  color: #ffffff; /* Secondary text color */
+  font-size: 1.25rem; /* Increased font size for small text */
+}
+
+.rounded-3 {
+  border-radius: 0.75rem; /* Rounded corners for items */
+}
+
+.py-3 {
+  padding-top: 1.5rem; /* Increased vertical padding */
+  padding-bottom: 1.5rem; /* Increased vertical padding */
+}
+
+.opacity-50 {
+  opacity: 0.5;
+}
+
+#about-h1{
+  color: white !important;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#about-h2{
+  color: #f9f9f9 !important;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+
+.col{
+  padding: 20px;
+}
+
+#contact-image{
+  height: 500px;
+  width: 100%;
+}
+
+.bd-placeholder-img{
+  height: 700px;
+}
+
+.carousel-caption{
+  color: #000000;
+}
+
+.main-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+footer {
+  background-color: #000000; /* Adjust as needed */
+  color: whitesmoke; /* Text color */
+  width: 100%; /* Ensure the footer spans the full width */
+  text-align: center; /* Center text within the footer */
+  padding: 1rem 0; /* Padding for footer content */
+  position: relative; /* Ensure footer does not overlap content */
+  height: 250px;
+}
+
+footer p {
+  color: whitesmoke;
+  font-size: 25px;
+}
+
+.nav-item {
+  color: #ff6f00;
+}
+
+/* Container for the login form */
+#log-in-div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 400px;  /* Limits the width for larger screens */
+  padding: 20px;
+  box-shadow: 0px 0px 40px rgba(255, 255, 255, 0.1);
+  color: #dee2e6;
+  background-color: #000000;
+  border-radius: 20px;
+  text-align: center;  /* Centers text inside the box */
+}
+
+/* Body styling to match the dark theme */
+#log-in-body {
+  background-color: #242424;
+}
+
+/* Styling for the form elements */
+form {
+  padding: 20px;
+  width: 100%; /* Ensures the form doesn’t exceed the max-width */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+/* Button styling */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background-color: #495057;
+  color: #dee2e6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.log-in-text{
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+/* Center the document container */
+.document-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Style the heading */
+.document-container h1 {
+  font-size: 4em;
+  margin-bottom: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #333;
+}
+
+.document-container {
+  flex: 1;
+}
+
+/* Style each document item */
+.document-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+}
+
+/* Add a hover effect */
+.document-item:hover {
+  transform: translateY(-3px);
+  background-color: #000000;
+}
+
+.document-item p {
+  margin: 0;
+  font-size: 1.2em;
+  color: #000000;
+}
+
+/* Change text color on hover */
+.document-item:hover p {
+  color: #ffffff;
+}
+
+/* Style the horizontal line */
+.document-container hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 10px 0;
+}
+
+#about-text-discribe-2 p{
+  font-size: smaller !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.about-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-about-description p{
+  color: red !important;
+}
+
+
+.member-details {
+  white-space: pre-line; /* Preserves new lines in the text */
+}
+.member-container {
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.vertical-line {
+  border-left: 2px solid black;
+  height: 100px;
+}
+
+.urb-nag-mem {
+  text-align: center;
+  font-size: 50px;
+}
+
+@media (max-width: 767.98px) {
+  .d-flex {
+      flex-direction: column;
+  }
+}
+
+/* Responsive Styles for Mobile Devices */
+@media (max-width: 767px) {
+  /* Ensure full-width columns on mobile */
+  .col-lg-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+  }
+
+  /* Adjust font sizes for smaller screens */
+  .display-4 {
+      font-size: 1.75rem; /* Reduce font size for smaller screens */
+  }
+
+  .fs-4 {
+      font-size: 1rem; /* Reduce font size for smaller screens */
+  }
+
+  /* Adjust image size for smaller screens */
+  .rounded-circle {
+      width: 150px;
+      height: 150px;
+  }
+
+  /* Reduce padding for smaller screens */
+  .py-5 {
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+  }
+
+  /* Adjust margin for smaller screens */
+  .mb-3 {
+      margin-bottom: 0.75rem;
+  }
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .document-container {
+      padding: 15px;
+  }
+  
+  .document-item {
+      padding: 12px;
+  }
+  
+  .document-container h1 {
+      font-size: 1.8em;
+  }
+  
+  .document-item p {
+      font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .document-container {
+      padding: 10px;
+  }
+  
+  .document-item {
+      padding: 10px;
+  }
+  
+  .document-container h1 {
+      font-size: 1.6em;
+  }
+  
+  .document-item p {
+      font-size: 1em;
+  }
+}
+
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  #log-in-div {
+    padding: 15px;
+    max-width: 90%;  /* Adjust the max-width for tablets */
+  }
+
+  form {
+    padding: 10px;
+  }
+
+  button {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  #log-in-div {
+    padding: 10px;
+    max-width: 100%;  /* Full width on mobile */
+  }
+
+  form {
+    padding: 8px;
+  }
+
+  button {
+    padding: 8px;
+  }
+}
+
+
+@media (min-width: 768px) {
+  .navbar-nav {
+      margin-left: auto;
+      margin-right: auto; /* Center the nav items */
+  }
+}
+
+@media (max-width: 991.98px) {
+  .text-end-md,
+  .text-start-md {
+      text-align: center;
+  }
+}
+
+@media (max-width: 991.98px) {
+  #about-text-discribe{
+    width: 100%;
+  }
+}
+
+/* Tablet screens */
+@media (max-width: 768px) {
+  .bd-placeholder-img {
+    height: 500px; /* Adjust height for tablets */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 576px) {
+  .bd-placeholder-img {
+    height: 300px; /* Adjust height for mobile phones */
+  }
+}

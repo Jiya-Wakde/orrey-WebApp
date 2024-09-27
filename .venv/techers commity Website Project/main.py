@@ -20,28 +20,32 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
 
+
 # User model
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(250), unique=True, nullable=False)
     password = db.Column(db.String(250), nullable=False)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
 
+
 doc_folder_path = os.path.join(app.root_path, 'static', 'confidential_doc')
+
 
 # with app.app_context():
 #     db.drop_all()
 #     db.create_all()
-
+#
 # with app.app_context():
 #     password = generate_password_hash("Testing101", method='pbkdf2:sha256', salt_length=8)
 #     new_user = User(name="Admin", password=password)
 #     db.session.add(new_user)
 #     db.session.commit()
-
+#
 #     print("User created successfully.")
 
 # Form for login
@@ -50,14 +54,17 @@ class MyForm(FlaskForm):
     password = PasswordField("Password", validators=[DataRequired()])
     submit = SubmitField("Submit")
 
+
 # Create tables
 with app.app_context():
     db.create_all()
+
 
 # Routes
 @app.route("/")
 def home():
     return render_template("index.html")
+
 
 @app.route("/work")
 def work():
@@ -70,16 +77,17 @@ def work():
     labels = [
         "Meeting with Nagpur Education Officer",  # Corresponding to photos[0]
         "Member's Birthday Celebration",  # Corresponding to photos[1]
-        "Meeting with Former Education Officer", 
+        "Meeting with Former Education Officer",
         "Meeting with Former Education Officer",
         "Protest against OPS",
         "Presenting our case to the Education Officer on behalf of the teachers' committee",
-        "Committee Protesting against wrong being",       
+        "Committee Protesting against wrong being",
     ]
 
     photos_per_row = 2
 
     return render_template("work.html", photos=photos, labels=labels, photos_per_row=photos_per_row)
+
 
 @app.route("/about")
 def about():
@@ -100,7 +108,7 @@ def about():
 
     # List to hold member data
     members = []
-    
+
     # Define files you want to exclude (1.jpg to 5.jpg)
     exclude_files = {'1.jpg', '2.jpg', '3.jpg', '4.jpg', '5.jpg'}
 
@@ -130,15 +138,13 @@ def about():
     print("Photos in directory:", photos_list)
     print("JSON order:", list(descriptions.keys()))
     print("Members being added:")
-    for member in members:
-        print(member)
-
     return render_template('about.html', members=members)
 
 
 @app.route("/contact")
 def contact():
     return render_template("contact.html")
+
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -148,29 +154,29 @@ def login():
         password = form.password.data
 
         # Debugging: print submitted data
-        print(f"Submitted Username: {username}")
-        print(f"Submitted Password: {password}")
-
+        # print(f"Submitted Username: {username}")
+        # print(f"Submitted Password: {password}")
         # Query the user from the database
         user = User.query.filter_by(name=username).first()
 
         if user:
-            print("User found in database.")
-            print(f"Stored Hash: {user.password}")
+            # print("User found in database.")
+            # print(f"Stored Hash: {user.password}")
             if check_password_hash(user.password, password):
-                print("Password matched.")
+                # print("Password matched.")
                 login_user(user)
                 flash('Logged in successfully.')
                 return redirect(url_for('protected'))
             else:
-                print("Password did not match.")
+                pass
+                # print("Password did not match.")
         else:
-            print("User not found in database.")
+            pass
+            # print("User not found in database.")
 
         flash('Invalid username or password')
-            
-    return render_template('login.html', form=form)
 
+    return render_template('login.html', form=form)
 
 
 @app.route('/logout')
@@ -195,6 +201,7 @@ def protected():
     doc_names = get_doc_names()
     return render_template("protected_docs.html", name=doc_names)
 
+
 @app.route("/downloads/<filename>")
 @login_required
 def downloads(filename):
@@ -207,16 +214,19 @@ def get_local_doc_names():
     local_doc_folder = os.path.join(app.static_folder, 'local_doc')
     return [f for f in os.listdir(local_doc_folder) if os.path.isfile(os.path.join(local_doc_folder, f))]
 
+
 @app.route("/government_relations")
 def gr_doc():
     local_doc_names = get_local_doc_names()
     return render_template("local_docs.html", names=local_doc_names)
+
 
 @app.route("/local_downloads/<name>")
 def local_downloads(name):
     directory = "static/local_doc"
     filename = name
     return send_from_directory(directory, filename, as_attachment=True)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

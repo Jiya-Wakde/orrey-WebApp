@@ -8,10 +8,6 @@ from wtforms.validators import DataRequired
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
 import os
-import sys
-
-if sys.platform != 'win32':
-    import fcntl
 
 app = Flask(__name__, static_url_path='/static')
 app.config['SECRET_KEY'] = "TheGreastesttimeTravlingDeviceisTimeSTONE"

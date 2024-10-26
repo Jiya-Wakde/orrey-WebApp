@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: black;
+}
+
+#fbg {
+    height: 100vh;
+    background-image: url("./bg.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#fbg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: 3px 3px;
+    opacity: 0.8;
+    animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.8; }
+    100% { opacity: 0.3; }
+}
+
+h1 {
+    color: white;
+    margin-right: 25%;
+    font-size: 15em;
+    text-align: center;
+    z-index: 1; /* Keep heading above stars */
+    font-family: "Bree Serif", serif;
+    font-weight: 400;  
+}
+
+canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+#content-wrapper {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Adjust space between boxes */
+    background-color: black;
+    flex-wrap: wrap; /* Allows items to wrap if there's not enough space */
+}
+
+.mbox {
+    border-radius: 50%;
+    border: 5px solid rgba(169, 169, 169, 0.7); /* Subtle gray with slight transparency */
+    width: 150px;
+    height: 150px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.mbox-container img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    transition: transform 0.3s ease width 0.3s ease, height 0.3s ease;
+}
+
+.mbox:hover {
+    transform: translateY(-20px) scale(1.3); /* Hover effect */
+    z-index: 2;
+}
+
+.mbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between image and text */
+}
+
+#content-wrapper p {
+    color: white;
+    font-size: 1.3em;
+    text-align: center;
+    margin: 0;
+    font-family: "Rosarivo", cursive;
+    font-weight: 400;
+    font-style: italic;
+}
+      
